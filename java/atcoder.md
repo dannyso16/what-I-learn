@@ -121,7 +121,12 @@ i += 1; // i = -2147483648
 
 ## String 
 
-- String.replaceAll("0", ""); // "0"を消す
+```java
+String.replaceAll("0", ""); 　    // "0"を消す
+String s = String.valueOf(char)   // char to string 
+String s = String.valueOf(char[]) // char[] to string 
+char[] ch = str.toCharArray();    // string to char
+```
 
 
 
@@ -264,7 +269,7 @@ while(true){
 
 
 
-### Dictionary
+### HashMap
 
 ```java
 // key:str, value:str
@@ -280,7 +285,25 @@ if (map.containsKey("りんご")){
 }
 ```
 
+```java
+// key; str, value; long
+// https://www.sejuku.net/blog/19796
+
+// 追加
+Map型オブジェクト名.put(キー, 値);
+
+// 取得
+Map型オブジェクト名.get(キー);
+
+```
+
+
+
 [詳細](<http://java-code.jp/232>)
+
+
+
+
 
 
 
