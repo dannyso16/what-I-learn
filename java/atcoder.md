@@ -128,6 +128,14 @@ String s = String.valueOf(char[]) // char[] to string
 char[] ch = str.toCharArray();    // string to char
 ```
 
+### String to Int
+
+```java
+String hoge = "1";
+int num = Integer.valueOf(hoge);
+int num = Integer.parseInt(hoge);
+```
+
 
 
 ## for 

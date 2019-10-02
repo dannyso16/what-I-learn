@@ -35,4 +35,18 @@
 
 [詳細](<https://developer.android.com/guide/components/fundamentals.html?hl=JA#DeclaringComponents>)
 
+
+
+## エラーログ
+
+### error: failed linking file resources.
+
+layout と string でうまくマッチしていない or activity とマッチしていないidがある
+
+
+
+### （sqlite で）エラーなく落ちる
+
+DBのキーの名前などを間違えている
+
 ​		

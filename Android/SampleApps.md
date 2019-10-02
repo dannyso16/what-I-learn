@@ -12,4 +12,3 @@ Layout editor を使用して，ボタンと入力フォームを作成する．
 
 別のアクティビティを開始する](<https://developer.android.com/training/basics/firstapp/starting-activity?hl=JA>)
 
-これやる
