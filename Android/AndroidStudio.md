@@ -49,4 +49,8 @@ layout と string でうまくマッチしていない or activity とマッチ�
 
 DBのキーの名前などを間違えている
 
+### error: XML or text declaration not at start of entity.
+
+XML file のはじめに空白や改行，コメントがある
+
 ​		

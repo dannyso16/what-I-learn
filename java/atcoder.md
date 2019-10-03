@@ -311,7 +311,15 @@ Map型オブジェクト名.get(キー);
 
 
 
+## 例外処理
 
+### try-catch
+
+[【Java】try-catchで例外処理を実装しよう！Exceptionクラスの使い方](<https://www.sejuku.net/blog/26344>)
+
+
+
+SQLを使うときは finally で必ずcloseするようにしようs
 
 
 
