@@ -49,8 +49,30 @@ layout と string でうまくマッチしていない or activity とマッチ�
 
 DBのキーの名前などを間違えている
 
+
+
 ### error: XML or text declaration not at start of entity.
 
 XML file のはじめに空白や改行，コメントがある
+
+
+
+### error: app:transformDexWithInstantRunSlicesApkForDebug
+
+[stackoverflow](<https://stackoverflow.com/questions/55848601/gradle-crashes-in-apptransformdexwithinstantrunslicesapkfordebug>)
+
+This can be fixed by updating to Gradle 5.4
+The easiest way to do this is to update the wrapper in use:
+
+- Open `gradle/gradle-wrapper.properties`
+- Find the line that looks like
+
+```java
+distributionUrl=https\://services.gradle.org/distributions/gradle-5.4-all.zip
+```
+
+- Change the version to 5.4
+Then try running the build again.
+Another way to fix this is to disable instant run. Go to File -> Settings -> Instant Run and then uncheck the box (or use preferences for Mac users).
 
 ​		
