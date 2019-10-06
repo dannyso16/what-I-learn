@@ -311,6 +311,14 @@ Map型オブジェクト名.get(キー);
 
 
 
+### Convert boolean to int
+
+```java
+int myInt = myBoolean ? 1 : 0;
+```
+
+
+
 ## 例外処理
 
 ### try-catch
@@ -326,3 +334,6 @@ SQLを使うときは finally で必ずcloseするようにしようs
 ### 読みたい
 
 [競プロだけでは習得しづらいJava Stream API 【アドベントカレンダー 6日目】](<chttps://trap.jp/post/551/>)
+
+
+
