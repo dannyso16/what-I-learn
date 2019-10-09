@@ -72,7 +72,31 @@ distributionUrl=https\://services.gradle.org/distributions/gradle-5.4-all.zip
 ```
 
 - Change the version to 5.4
-Then try running the build again.
-Another way to fix this is to disable instant run. Go to File -> Settings -> Instant Run and then uncheck the box (or use preferences for Mac users).
+  Then try running the build again.
+  Another way to fix this is to disable instant run. Go to File -> Settings -> Instant Run and then uncheck the box (or use preferences for Mac users).
 
-​		
+
+
+### error: 'try' can use automatic resource management 
+
+```java
+try {
+    DataBaseHelper db = ...;
+    書き込んだり読み込んだり
+} finally {
+    db.close();
+}
+```
+
+try-with-resource 文にしたら`finally` でcloseしなくてよい
+
+```
+try (DataBaseHelper db = ...) {
+    書き込んだり;
+}
+```
+
+[try-with-resources文の基本](<https://qiita.com/Takmiy/items/a0f65c58b407dbc0ca99>)
+
+
+
