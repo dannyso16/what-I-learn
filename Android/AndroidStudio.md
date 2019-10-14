@@ -35,6 +35,12 @@
 
 [詳細](<https://developer.android.com/guide/components/fundamentals.html?hl=JA#DeclaringComponents>)
 
+## 設定
+
+[Android Studio の設定](<https://developer.android.com/studio/intro/studio-config?utm_source=android-studio#antivirus-impact>)
+
+
+
 
 
 ## エラーログ
