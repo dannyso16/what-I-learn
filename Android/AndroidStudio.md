@@ -106,3 +106,11 @@ try (DataBaseHelper db = ...) {
 
 
 
+### ネットワーク権限を付与したのにapiを叩けない．エラーもない
+
+### D/NetworkSecurityConfig: No Network Security Config specified, using platform default
+
+Android 9(pi) ではHTTP通信などが無効化されている．許可する場合は別途xmlを指定する[参考](<https://qiita.com/b_a_a_d_o/items/afa0d83bbffdb5d4f6be>)
+
+
+
