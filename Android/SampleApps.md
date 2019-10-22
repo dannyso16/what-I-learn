@@ -6,7 +6,7 @@ Layout editor を使用して，ボタンと入力フォームを作成する．
 
 画面サイズに合わせて，フォームを横に広げるための制約を負荷
 
-![screenshot-activity1](C:\Users\HOME\Documents\GitHub\what-I-learn\Android\SampleApps.assets\screenshot-activity1.png)
+![screenshot-activity1](https://github.com/dannyso16/what-I-learn/blob/master/Android/SampleApps.assets/screenshot-activity1.png)
 
 
 
