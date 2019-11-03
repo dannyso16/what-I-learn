@@ -325,9 +325,111 @@ int myInt = myBoolean ? 1 : 0;
 
 [【Java】try-catchで例外処理を実装しよう！Exceptionクラスの使い方](<https://www.sejuku.net/blog/26344>)
 
+SQLを使うときは finally で必ずcloseするようにしよう
 
 
-SQLを使うときは finally で必ずcloseするようにしようs
+
+## 出力
+
+複数あっても
+
+```java
+System.out.printf("%d %f ...", 引数1, 引数2, 引数3…);
+```
+
+strがほしいなら
+
+```java
+String str = String.format("変数hogeの中身は%dです。", hoge);
+```
+
+
+
+### %dみたいな書き方
+
+| 指定子 | 主な型 | 簡単な説明       | 記述例               | 出力例   |
+| ------ | ------ | ---------------- | -------------------- | -------- |
+| %      | なし   | 書式指定子の開始 | なし                 | なし     |
+| d      | 整数   | 10進数で出力     | printf("%d", 123)    | 123      |
+| o      | 整数   | 8進数で出力      | printf("%o", 123)    | 173      |
+| x      | 整数   | 16進数で出力     | printf("%x", 123)    | 7b       |
+| e      | 小数   | 指数で出力       | printf("%e", 123.4f) | 1.23E+02 |
+| f      | 小数   | 小数点数出力     | printf("%f", 123.4f) | 123.4    |
+| s      | 文字列 | 文字列を出力     | printf("%s", “abc”)  | abc      |
+| c      | 文字   | 文字を出力       | printf("%c", ‘a’)    | a        |
+| b      | 真偽値 | 真偽値を出力     | printf("%b", true)   | true     |
+
+
+
+### 桁数・左詰・0埋め・改行 ・引数番号 (※△=スペースの意味)
+
+| 指定子 | 簡単な説明           | 記述例                                           | 出力例         |
+| ------ | -------------------- | ------------------------------------------------ | -------------- |
+| 数     | 最小桁数を指定       | printf("[%5d]", 123)                             | [△△123]        |
+| .数    | 文字列の最大幅を指定 | printf([%.3s]", "abcde")                         | [abc]          |
+| -      | 左詰                 | printf([%-5s]", "abc")                           | [abc△△]        |
+| 0      | 0埋め                | printf("[%05d]",123);                            | [00123]        |
+| n      | 改行                 | printf("abc%ndef");                              | abc def        |
+| 数$    | 引数の番号           | printf( "%3$s,%2$s,%1$s", "str1","str2","str3"); | str3,str2,str1 |
+
+
+
+### 日付 (※日時は2018年1月5日 17時4分5秒を想定)
+
+| 指定子 | 簡単な説明        | 記述例                     | 出力例     |
+| ------ | ----------------- | -------------------------- | ---------- |
+| tY     | 年(4桁)           | printf("%tY", new Date()); | 2018       |
+| ty     | 年(2桁)           | printf("%ty", new Date()); | 18         |
+| tm     | 月(2桁)           | printf("%tm", new Date()); | 01         |
+| td     | 日(2桁)           | printf("%td", new Date()); | 05         |
+| te     | 日(1~2桁)         | printf("%te", new Date()); | 5          |
+| tH     | 時(2桁)24時間制   | printf("%tH", new Date()); | 17         |
+| tl     | 時(1~2桁)12時間制 | printf("%tl", new Date()); | 5          |
+| tM     | 分(2桁)           | printf("%tM", new Date()); | 04         |
+| tS     | 秒(2桁)           | printf("%tS", new Date()); | 05         |
+| tF     | 日付              | printf("%tF", new Date()); | 2018-01-05 |
+| tT     | 時刻              | printf("%tT", new Date()); | 17:04:05   |
+
+
+
+
+
+## マラソンメモ
+
+### 時間の計測
+
+[Java.lang.System.currentTimeMills()](<https://www.tutorialspoint.com/java/lang/system_currenttimemillis.htm>)
+
+```java
+final long TIME_LIMIT = 5500;
+long st = System.currentTimeMillis();
+long et = st + TIME_LIMIT;
+
+while (System.currentTimeMillis() < et) {
+    // hoge
+}
+```
+
+
+
+### ファイルを開く
+
+```java 
+try (FileInputStream reader = new FileInputStream(dir + filename1);
+     FileOutputStream writer = new FileOutputStream(dir + filename2)){
+    
+    writer.write(0);
+    
+} catch (IOException e) {
+    e.printStackTrace();
+}finally{
+     //finally句でのリソースのcloseは不要
+    // try{
+    // 	if (reader!=null){ reader.close(); }		
+}
+```
+
+
 
 
 
