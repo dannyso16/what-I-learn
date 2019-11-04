@@ -437,5 +437,5 @@ try (FileInputStream reader = new FileInputStream(dir + filename1);
 
 [競プロだけでは習得しづらいJava Stream API 【アドベントカレンダー 6日目】](<chttps://trap.jp/post/551/>)
 
-
+[貪欲法、山登り法、焼きなまし、ビームサーチ、これらの間の関係について](<https://kimiyuki.net/blog/2019/03/07/local-search-and-greedy/>)
 
