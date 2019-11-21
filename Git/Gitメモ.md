@@ -14,3 +14,10 @@ $ git config --global core.quotepath false
 
 git diff などは普通に日本語だったのでびびった（2019/11/17）
 
+
+
+### cmdからファイルを所定のプログラムで開きたい
+
+`start file_name` で開ける
+
+macだと`open`みたい
