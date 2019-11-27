@@ -13,3 +13,11 @@
 prop は、パスレポートやクロス集計レポートで使用されます。例えば、プロパティ変数を使用して、コンテンツタイプ、サブセクションまたはテンプレート名を示すことができます。作成されるカスタムトラフィックレポートには、最も頻繁に閲覧されるコンテンツタイプ、サブセクションまたはテンプレートが示されます。
 
 [Adobe Analytics 用語みたい]( https://docs.adobe.com/content/help/ja-JP/analytics/implementation/analytics-basics/traffic-props-evars/props-evars.translate.html )
+
+
+
+## Windows のユーザーフォルダのパス
+
+ `C:\Users\(ユーザー名)\Documents` は，ユーザ名によって変わる．
+
+`%userprofile%\Documents` とすればいい．
