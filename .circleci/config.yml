@@ -2,7 +2,23 @@ version: 2.1
 jobs:
   build:
     docker: 
-      - image: circleci/node:4.8.2
+      - image: circleci/node
+    working_directory: ~/wd
     steps:
+      # if markdown includes characters other than ascii (e.g. Japanese) you needs to install fonts like below
+      # - run: sudo apt-get update && sudo apt-get install fonts-ipaexfont -y
       - checkout
-      - run: echo "hello circle ci"
+      - restore_cache:
+          keys:
+            - npm-{{ checksum "package.json" }}
+      - run: npm i
+      - save_cache:
+          key: npm-{{ checksum "package.json" }}
+          paths:
+            - ~/wd/node_modules
+      - run: npm run build
+      - save_cache:
+          key: build-{{ .Revision }}
+          paths:
+            - ~/wd/build
+            
