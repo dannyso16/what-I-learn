@@ -16,8 +16,23 @@ git diff などは普通に日本語だったのでびびった（2019/11/17）
 
 
 
-### cmdからファイルを所定のプログラムで開きたい
+## cmdからファイルを所定のプログラムで開きたい
 
 `start file_name` で開ける
 
 macだと`open`みたい
+
+
+
+## localに新しいブランチを作って，GitHubから特定のブランチをpullする
+
+`git pull origin pullしたいリモートブランチ名:ローカルブランチ名`
+
+例えば，`git pull origin enhanceA:enhanceA`
+
+
+
+## いらないブランチを消す
+
+`git branch -d branch_name`
+
