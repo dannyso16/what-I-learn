@@ -33,7 +33,28 @@ Error は発生するべきでない異常なイベントのための Throwable 
 
 
 
+## Java起動コマンド
 
+[Java アプリケーション起動コマンド](https://docs.oracle.com/javase/jp/1.3/tooldocs/solaris/java.html)
+
+基本的には
+
+1. javac hoge.java でコンパイルして hoge.class を生成
+2. java hoge でhoge.class を実行
+
+だけ．
+
+ただしクラスパスを指定する場合
+
+`java -cp class\\path hoge`
+
+もしくは
+
+`java -classpath class\\pth hoge`
+
+とする．指定のない場合 `.`で　class file を探してくれる
+
+**※　jar が気になる…**
 
 ## Swing (GUI application)
 
@@ -50,7 +71,47 @@ Error は発生するべきでない異常なイベントのための Throwable 
 [Java入門 (9) - タイマーとスレッド](https://codezine.jp/article/detail/2597)
 ：わかりやすい．この連載読んでもいいかも
 
-### [複数行テキスト](http://wisdom.sakura.ne.jp/system/java/swing/swing46.html)
+### JLabelで複数行テキスト
+
+単純に"\n"では改行がうまくできないので，HTMLの記述を使用する．簡単に使用できるようにStringを入力するとHTML形式に変換するメソッドを用意した
+
+In body of method:
+
+```java
+myLabel.setText(convertToMultiline("This is\na multi-line string"));
+```
+
+Helper method:
+
+```java
+public static String convertToMultiline(String orig)
+{
+    return "<html>" + orig.replaceAll("\n", "<br>");
+}
+```
+
+### JavaからGitBashを実行
+
+ただし事前に`C:\\program file\\git`を環境変数に追加しておく．（git-bash.exe と簡単に記述するため）
+
+```java
+private void openGitBash(String projectName) {
+        try {
+            // windows only
+            ProcessBuilder pb = new ProcessBuilder("cmd", "/c", "start", "git-bash.exe");
+            pb.directory(new File("..\\" + projectName));
+            Process process = pb.start();
+            int ret = process.waitFor(); 
+            System.out.println(ret);
+       } catch (IOException exception) {
+            exception.printStackTrace();
+       } catch (InterruptedException exception) {
+            exception.printStackTrace();
+       }
+    }
+```
+
+
 
 ### JTextAreaで文字色を変える
 [リンク](https://stackoverflow.com/questions/9650992/how-to-change-text-color-in-the-jtextarea)
@@ -59,15 +120,49 @@ Error は発生するべきでない異常なイベントのための Throwable 
 
 ```java
 JPanel p = new JPanel();
-p.setPreferredSize(new Dimension(200, 100));
-p.setBackground(Color.ORANGE);
-p.setLayout(new BorderLayout());
-
+p.setLayout(p, new BoxLayout(), BoxLayout.Y_AXIS);
 JButton btn1 = new JButton("NORTH"); // 上
 JButton btn2 = new JButton("SOUTH"); // 下
-p.add(btn1, BorderLayout.NORTH);
-p.add(btn2, BorderLayout.SOUTH);
+p.add(btn1);
+p.add(btn2);
 contentPane.add(p);
+```
+
+### システムトレイにアイコンを表示
+
+[qiita](https://qiita.com/tekunikaruza/items/bc04d148d49f6ff08c37)
+
+[oracle](https://docs.oracle.com/javase/tutorial/uiswing/misc/systemtray.html)
+
+```java
+import java.awt.AWTException;
+import java.awt.Image;
+import java.awt.SystemTray;
+import java.awt.Toolkit;
+import java.awt.TrayIcon;
+
+public class IconDemo {
+
+    public static void main(String[] args) {
+        IconDemo app = new IconDemo();
+        app.run();
+    }
+
+    /**
+     * システムトレイにアイコンを出すメソッド
+     */
+    private void run() {
+        final TrayIcon trayIcon = 
+                new TrayIcon( (new ImageIcon(".\\hoge.png", "description")).getImage());
+        icon.setImageAutoSize(true); // リサイズ
+
+        try {
+            SystemTray.getSystemTray().add(icon); // システムトレイに追加
+        } catch (AWTException e) {
+            e.printStackTrace();
+        }
+    }
+}
 ```
 
 
@@ -168,6 +263,17 @@ BufferedReader br = null;
                 }
             }
         }
+```
+
+processbuilder.start() は二種類の例外（InterruptedExpe, IOExce）を受けないと怒られる．
+
+ディレクトリを指定する
+
+```java
+Process p = null;
+ProcessBuilder pb = new ProcessBuilder();
+pb.directory(new File("/home"));
+p = pb.start();
 ```
 
 
