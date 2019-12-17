@@ -56,6 +56,8 @@ Error は発生するべきでない異常なイベントのための Throwable 
 
 **※　jar が気になる…**
 
+
+
 ## Swing (GUI application)
 
 [Swingを使ってみよう](https://www.javadrive.jp/tutorial/)
@@ -111,10 +113,20 @@ private void openGitBash(String projectName) {
     }
 ```
 
+### スクロールしたい
 
+[リンク](http://bb-biz.com/java-desktop-schedule-027/)
 
 ### JTextAreaで文字色を変える
 [リンク](https://stackoverflow.com/questions/9650992/how-to-change-text-color-in-the-jtextarea)
+
+```java
+JPanel mainPanel = new JPanel():
+JScrollPane scrollpane = new JScrollPane(mainPanel);
+scrollpane.setViewportView(mainPanel);
+```
+
+
 
 ### 縦に並べる
 
@@ -163,6 +175,13 @@ public class IconDemo {
         }
     }
 }
+```
+
+### アイコンの設定
+
+```java
+ImageIcon icon = new ImageIcon("./icon.png");
+JFrameObj.setIconImage(icon.getImage());
 ```
 
 
@@ -297,3 +316,41 @@ String.format(書式文字列, 値);
 
 [リファレンス](https://docs.oracle.com/javase/jp/8/docs/api/java/util/Formatter.html#syntax)
 
+
+
+## 外部ファイル参照
+
+### txt ファイル読む
+
+```java
+String ret = "";
+
+try {
+    File f = new File(".\\todos.txt");
+    BufferedReader br = new BufferedReader(new FileReader(f));
+
+    String str;
+    while ((str = br.readLine()) != null) {
+        ret += str + "\n";
+    }
+    br.close();
+}catch(FileNotFoundException e) {
+    e.getStackTrace();
+}catch(IOException e) {
+    e.getStackTrace();
+}
+
+System.out.println(ret);
+```
+
+
+
+## パッケージのインポート
+
+[**Javaの実案件に必須のパッケージとインポートを知る (1/3)**](https://www.atmarkit.co.jp/ait/articles/0908/28/news104.html)
+
+
+
+## 知識
+
+[2019年にJavaを利用している人は全員理解すべきことを説明してみる](https://www.orangeitems.com/entry/2018/02/08/152022)

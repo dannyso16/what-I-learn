@@ -48,3 +48,16 @@ Microsoft Python Langage Server がやたら思いので，Jediが使い勝手�
 > delete the .vscode directory
 > 
 
+
+
+## onClickButton or onButtonClick??
+
+検索回数は
+
+- “onButtonClicked” returns ~22,000 search results
+- “onClickedButton” ~608 results
+- **“onButtonClick" ~122,000,**
+-  “onClickButton" ~27,600
+
+[参考](https://stackoverflow.com/questions/56051358/function-name-onbuttonclick-or-onclickbutton)
+
