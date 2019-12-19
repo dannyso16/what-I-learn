@@ -29,3 +29,44 @@ except AssertionError as err:
 
 `__debug__` が trueの場合（デフォルト）でasset できる．しかし，`__debug__`は再代入不可能なので，実行時にオプションをつけよう
 
+### raw文字列
+
+エスケープシーケンスを無視できる
+
+```python
+rs = r'a\tb\nA\tB'
+print(rs)
+# a\tb\nA\tB
+
+print(type(rs))
+# <class 'str'> ただのString
+
+print(rs == 'a\\tb\\nA\\tB')
+# True
+```
+
+パスを書くときに便利だが，**末尾が奇数個のバックスラッシュで終わる文字列はエラー**になるので注意。この場合は通常の文字列で書くか、末尾だけ通常文字列で書いて連結する必要がある。
+
+```python
+path2 = 'C:\\Windows\\system32\\'
+# rpath2 = r'C:\Windows\system32\'
+# SyntaxError: EOL while scanning string literal
+rpath2 = r'C:\Windows\system32' + '\\'
+print(path2 == rpath2)
+# True
+```
+
+#### repr()
+
+通常の文字列の変数をエスケープシーケンスを無視（無効化）したraw文字列に変換したい場合、組み込み関数`repr()`が使える。
+
+- [2. 組み込み関数 repr() — Python 3.6.3 ドキュメント](https://docs.python.org/ja/3/library/functions.html#repr)
+
+```python
+s_r = repr(s)
+print(s_r)
+# 'a\tb\nA\tB'
+```
+
+`repr()`が返すのは`eval()`に渡されたときと同じ値を持つようなオブジェクトを表す文字列であり、**先頭と末尾に`'`が付いている**。
+
