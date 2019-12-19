@@ -184,6 +184,54 @@ ImageIcon icon = new ImageIcon("./icon.png");
 JFrameObj.setIconImage(icon.getImage());
 ```
 
+### パネルのコンポーネントの入れ替え
+
+```java
+jpanel.remove(component); // 指定して
+jpanel.removeAll(); // すべて
+
+jpanel.revalidate(); // コンポーネントのレイアウトを変更して再描画したいとき
+jpanel.repaint(); //コンテナのサイズなど変更したとき
+```
+
+### 透明にする
+
+`.setOpaque(true); //不透明`
+
+JLabelはデフォルトで透明なので，色を付けるときは不透明にする
+
+透明度は
+
+```java
+Color(r, g, b, a); // αを指定できる
+// それぞれ0～250で指定
+// それ以外は IllegalArgumentException
+```
+
+### ボタンを透明にしたい
+
+```java
+button.setOpaque(false); // 透明に
+button.setContentAreaFilled(false); // 塗りつぶさない
+button.setBorderPainted(false); // ふちをなくす
+```
+
+### パネルの大きさ
+
+```java
+JPanel panel = new JPanel();
+panel.setPreferredSize(new Dimension(200, 100));
+// このコンポーネントの適切なサイズを設定します。preferredSize が null の場合、UI で適切なサイズを要求します。
+```
+
+### 枠の編集
+
+[ここ](https://www.javadrive.jp/tutorial/border/)
+
+### イベント処理
+
+
+
 
 
 
