@@ -36,3 +36,4 @@ macだと`open`みたい
 
 `git branch -d branch_name`
 
+hel
