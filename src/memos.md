@@ -21,3 +21,43 @@ prop は、パスレポートやクロス集計レポートで使用されます
  `C:\Users\(ユーザー名)\Documents` は，ユーザ名によって変わる．
 
 `%userprofile%\Documents` とすればいい．
+
+
+
+## VS Code で Analyzing in backgroudn となり，、メモリバカ食いしてファンうなる
+
+
+![python_analysing_background](.\memos.assets\python_analysing_background.png)
+
+解決作
+
+>You can disable the new Python Language Server by opening settings in VSCode (Ctrl+, ) and set "python.jediEnabled": true. Then reload the window and/or restart VSCode.
+
+自分の場合 [ctrl +]が拡大だったので，設定からいじったら今のところ大丈夫だ．
+
+Microsoft Python Langage Server がやたら思いので，Jediが使い勝手がいいようだ．
+
+> High memory usage： https://github.com/Microsoft/python-language-server/issues/832 Jedi is an autocompletion tool for Python that can be used in IDEs/editors. Jedi works. Jedi is fast. It understands all of the basic Python syntax elements including many builtin functions. So you can switch Jedi instead of Python Language Server.
+>
+> Process:
+>
+> set "python.jediEnabled": true
+>
+> disable the Visual Studio IntelliCode plugin
+>
+> delete the .vscode directory
+> 
+
+
+
+## onClickButton or onButtonClick??
+
+検索回数は
+
+- “onButtonClicked” returns ~22,000 search results
+- “onClickedButton” ~608 results
+- **“onButtonClick" ~122,000,**
+-  “onClickButton" ~27,600
+
+[参考](https://stackoverflow.com/questions/56051358/function-name-onbuttonclick-or-onclickbutton)
+
