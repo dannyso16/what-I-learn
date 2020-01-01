@@ -126,7 +126,33 @@ JScrollPane scrollpane = new JScrollPane(mainPanel);
 scrollpane.setViewportView(mainPanel);
 ```
 
+### JLabelを非表示したい
 
+```java
+JPanel.setVisible(false);
+```
+
+### Componentの追加や削除
+
+```java
+panel.remove(...);
+panel.add(...);
+panel.revalidate(); // 追加削除を更新
+panel.repaint(); // 再描画を促す
+```
+
+### Alignmentを調整
+
+- setAlignmentX
+- setAlignmentY
+
+を使う．引数はfloatで0（左端）から1（右端）．中心は0.5f
+
+ただしいくつか定数も用意されている
+
+```java
+JButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+```
 
 ### 縦に並べる
 
@@ -139,6 +165,47 @@ p.add(btn1);
 p.add(btn2);
 contentPane.add(p);
 ```
+
+### デスクトップのサイズを知りたい
+
+```java
+// (a) 画面の解像度の取得方法
+// タスクトレイも含めたサイズ
+java.awt.GraphicsEnvironment env = java.awt.GraphicsEnvironment.getLocalGraphicsEnvironment();
+java.awt.DisplayMode displayMode = env.getDefaultScreenDevice().getDisplayMode()
+// 変数widthとheightに画面の解像度の幅と高さを代入
+int width = displayMode.getWidth();
+int height = displayMode.getHeight();
+
+// (b) デスクトップのサイズの取得方法
+// タスクトレイは含めない
+java.awt.GraphicsEnvironment env = java.awt.GraphicsEnvironment.getLocalGraphicsEnvironment();
+// 変数desktopBoundsにデスクトップ領域を表すRectangleが代入される
+java.awt.Rectangle desktopBounds = env.getMaximumWindowBounds();
+```
+
+
+
+### 場所を座標で指定する
+
+```
+JPanel p = new JPanel();
+p.setLayout(null);
+```
+
+まずコンテナにデフォルトで設定されているレイアウトマネージャーが無効となりました。
+
+例えばほとんどのコンポーネントの親クラスであるComponentクラスで用意されている「setBounds」メソッドを使って位置及びサイズを指定してみます。
+
+```
+setBounds
+public void setBounds(int x,
+                      int y,
+                      int width,
+                      int height)
+```
+
+
 
 ### システムトレイにアイコンを表示
 

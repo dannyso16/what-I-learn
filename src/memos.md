@@ -61,3 +61,17 @@ Microsoft Python Langage Server がやたら思いので，Jediが使い勝手�
 
 [参考](https://stackoverflow.com/questions/56051358/function-name-onbuttonclick-or-onclickbutton)
 
+
+
+## Windwos 10 レジストリ設定
+
+[Windows 10のレジストリ設定の基本 thickIT](https://thinkit.co.jp/story/2015/06/30/6147)
+
+[Pythonでレジストリを操作する（PySideのQSettingsから）](https://note.com/it_ks/n/nb5988c7187d7)
+
+
+
+### 右クリックのコンテンツ編集
+
+[あなただけの右クリックで、ストレスフリーな開発を。(コンテキストメニュー編集マニュアル)]([https://qiita.com/NumLocker/items/f8016f1aed7207b850fb#2%E7%AB%A0-%E3%83%95%E3%82%A9%E3%83%AB%E3%83%80%E3%81%A7%E3%81%AE%E5%8F%B3%E3%82%AF%E3%83%AA%E3%83%83%E3%82%AF](https://qiita.com/NumLocker/items/f8016f1aed7207b850fb#2章-フォルダでの右クリック))
+
