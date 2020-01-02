@@ -69,9 +69,33 @@ Microsoft Python Langage Server がやたら思いので，Jediが使い勝手�
 
 [Pythonでレジストリを操作する（PySideのQSettingsから）](https://note.com/it_ks/n/nb5988c7187d7)
 
+[上級ユーザー向けの Windows レジストリ情報 microsoft](https://support.microsoft.com/ja-jp/help/256986/windows-registry-information-for-advanced-users)
+
+
+
+## Windows.old 
+
+[消す](https://thinkit.co.jp/story/2015/10/26/6516)
+
 
 
 ### 右クリックのコンテンツ編集
 
 [あなただけの右クリックで、ストレスフリーな開発を。(コンテキストメニュー編集マニュアル)]([https://qiita.com/NumLocker/items/f8016f1aed7207b850fb#2%E7%AB%A0-%E3%83%95%E3%82%A9%E3%83%AB%E3%83%80%E3%81%A7%E3%81%AE%E5%8F%B3%E3%82%AF%E3%83%AA%E3%83%83%E3%82%AF](https://qiita.com/NumLocker/items/f8016f1aed7207b850fb#2章-フォルダでの右クリック))
+
+[ディレクトリの右クリックメニューにコマンドプロンプトを表示させる(暫定)](https://www.pg-fl.jp/program/tips/w10bgcmd.htm)
+
+## powershell
+
+### 二階層上のパスに移動したい
+
+```po
+$RootPath = Split-Path (Split-Path $PSScriptRoot -Parent) -Parent
+```
+
+### printする
+
+```
+$word='PowerShell'; Write-Output "Windows $word"
+```
 

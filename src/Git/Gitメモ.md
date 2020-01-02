@@ -148,3 +148,42 @@ pruneで刈り取る
 git remote prune origin
 ```
 
+
+
+## Git push の取り消し
+
+### 過ちを隠す（commitを取り消して，リモートから消す）
+
+#### ローカルも書き換えるとき
+
+```c
+// 直前のコミットなら… ひとつ前に戻す
+git reset --hard HEAD^
+
+// 強制的にpush
+git push -f origin (remote branch 名)
+```
+
+#### ローカルはそのままにしたい（未確認）
+
+```c
+// リモートの参照を強制的に戻す
+git push -f origin {sha-1 like 8dj2dga...}:{remote branch name}
+```
+
+
+
+### 過ちを認める（間違いコミットを打ち消すrevertコミットを作って追加でpush）
+
+安全だけどログが汚くなる
+
+```ba
+// 直前のコミットを打ち消すコミット
+git revert HEAD
+// 最新に加えて，さらに過去３つのコミットを打ち消す
+git revert HEAD~3
+
+// 新しいコミットなのでconflictしないし，-fで強制しなくていい
+git push origin {branch name}
+```
+
