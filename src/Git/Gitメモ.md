@@ -36,6 +36,9 @@ macだと`open`みたい
 
 `git branch -d branch_name`
 
+<<<<<<< HEAD
+hel
+=======
 
 
 ### git log
@@ -160,6 +163,7 @@ pruneで刈り取る
 git remote prune origin
 ```
 
+<<<<<<< HEAD
 
 
 ## Git push の取り消し
@@ -256,3 +260,6 @@ hash = sha1("commit<半角スペース><コミットオブジェクトのバイ�
 
 [hashを意図的に衝突させる攻撃に対するgoogle の生命](https://security.googleblog.com/2017/02/announcing-first-sha1-collision.html)
 
+=======
+>>>>>>> 20a09efe1987970b472b45d5d004b365fcc8138a
+>>>>>>> db26bfb54e4ee4542a8c8812d4486eb90f066196
