@@ -1,6 +1,6 @@
+
+
 # Git メモ
-
-
 
 ## git status等で日本語ファイル名が”\xxx\xxx”と数字の羅列になる
 
@@ -122,6 +122,18 @@ git checkout <file>
 git checkout <file>
 ```
 
+## 直前のコミットを消したい
+
+```
+git reset --hard HEAD^
+```
+
+## コミットを消すが履歴を残す場合（打消しのコミットをする）
+
+```
+git revert コミットのハッシュ地
+```
+
 
 
 ## ブランチを消したい
@@ -186,4 +198,61 @@ git revert HEAD~3
 // 新しいコミットなのでconflictしないし，-fで強制しなくていい
 git push origin {branch name}
 ```
+
+### 特定のコミットを確認したい
+
+```bash
+git show {shaハッシュ値}
+```
+
+
+
+# Git の中身
+
+## コミットハッシュ値
+
+[Gitのコミットハッシュ値は何を元にどうやって生成されているのか](https://tech.mercari.com/entry/2016/02/08/173000)
+
+[Gitのつくりかた](https://tech.mercari.com/entry/2015/09/14/175300)
+
+```bash
+git log -1
+commit 757cd618f38d574238bae4768ff1a1aedfafdb7a
+Author: DQNEO <dqneo@example.com>
+Date:   Thu Feb 4 21:18:28 2016 +0900
+```
+
+
+
+コミットオブジェクトの中身を見る
+
+```
+$ git cat-file -p 757cd618f38d574238bae4768ff1a1aedfafdb7a
+tree 05520e3bd0354e823cacf96b244987f235b3c240
+parent 2476c4c7bcbf98e444b6851d67036077334502d2
+author DQNEO <dqneo@example.com> 1454588308 +0900
+committer DQNEO <dqneo@example.com> 1454588308 +0900
+
+second commit
+```
+
+なんと実態は数行のテキストデータ
+
+### ハッシュの計算式
+
+```
+hash = sha1("commit<半角スペース><コミットオブジェクトのバイト数>\0<コミットオブジェクトの中身>")
+```
+
+
+
+### shaの短縮など
+
+[公式]([https://git-scm.com/book/ja/v2/Git-%E3%81%AE%E3%81%95%E3%81%BE%E3%81%96%E3%81%BE%E3%81%AA%E3%83%84%E3%83%BC%E3%83%AB-%E3%83%AA%E3%83%93%E3%82%B8%E3%83%A7%E3%83%B3%E3%81%AE%E9%81%B8%E6%8A%9E#r_commit_ranges](https://git-scm.com/book/ja/v2/Git-のさまざまなツール-リビジョンの選択#r_commit_ranges))
+
+
+
+### ニュースなど
+
+[hashを意図的に衝突させる攻撃に対するgoogle の生命](https://security.googleblog.com/2017/02/announcing-first-sha1-collision.html)
 
