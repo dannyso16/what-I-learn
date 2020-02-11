@@ -1,5 +1,13 @@
 # memos
 
+# TOC
+
+[toc]
+
+
+
+# 未分類
+
 ## prop と eVar
 
 カスタムトラフィック変数（prop（s.prop）またはプロパティ変数とも呼ばれます）は、各変数が Analytics に送信された回数をカウントするカウンターです。
@@ -97,5 +105,56 @@ $RootPath = Split-Path (Split-Path $PSScriptRoot -Parent) -Parent
 
 ```
 $word='PowerShell'; Write-Output "Windows $word"
+```
+
+
+
+# Markdown記法（Typora編）
+
+## ToC(Table of Content)目次がほしい
+
+`[toc]`と打つだけ！！
+
+
+
+
+
+# ffmpeg
+
+Google Colaboratoryでは標準で使える。複数の画像をgifにまとめたり、動画化できる。アニメーション生成はコードを書くよりこっちのが楽な印象。
+
+
+
+## [連番画像からGIFアニメを生成する](http://kimizuka.hatenablog.com/entry/2018/05/26/204618)
+
+0.png、1.png、2.png、3.pngという感じの連番画像をGIFアニメにしたいとき、
+
+```bash
+fmpeg -i %d.png -vf palettegen palette.png
+```
+
+と、まずpalette.pngをつくり、
+
+```bash
+ffmpeg -f image2 -r 1 -i %d.png -i palette.png -filter_complex paletteuse anim.gif
+```
+
+とカラーパレットをもとにGIFアニメをつくれます。
+
+`r = 1` のところがFPSになるので、上記の通りだと、連番の枚数がそのままGIFアニメの秒数になります。
+また、事前にすべての画像の幅、高さを統一しておく必要があります。
+
+例えば、`hoge_001.png`のように三桁0うめにしてる時は
+
+```bash
+hoge_%03d.png
+```
+
+のように指定すればいい。
+
+ちなみにpythonだと0うめは `str.zfill(keta-suu)`を使うといい
+
+```python
+ plt.savefig("hoge_{}.png".format(str(iteration).zfill(3)))
 ```
 
