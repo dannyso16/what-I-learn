@@ -1,5 +1,9 @@
 
 
+[toc]
+
+
+
 # Git メモ
 
 ## git status等で日本語ファイル名が”\xxx\xxx”と数字の羅列になる
@@ -36,9 +40,7 @@ macだと`open`みたい
 
 `git branch -d branch_name`
 
-<<<<<<< HEAD
-hel
-=======
+
 
 
 ### git log
@@ -58,6 +60,8 @@ git merge develop
 **コミットが済んでいないファイルが残っている状態で git merge しない**
 
 コミットが済んでいない状態で git merge を行うと、ブランチの変更の取り込み漏れの原因になります。全てコミットが済んでいる状態で git merge するようにしましょう。
+
+
 
 ## マージを元に戻す方法
 
@@ -163,7 +167,7 @@ pruneで刈り取る
 git remote prune origin
 ```
 
-<<<<<<< HEAD
+
 
 
 ## Git push の取り消し
@@ -210,6 +214,42 @@ git show {shaハッシュ値}
 ```
 
 
+
+## 絶望のCONFLICT
+
+```bash
+$ git pull
+Auto-merging src/Git/Gitメモ.md
+CONFLICT (content): Merge conflict in src/Git/Gitメモ.md
+Automatic merge failed; fix conflicts and then commit the result.
+```
+
+うわああああ
+
+```bash
+$ git status
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+        both modified:   src/Git/Gitメモ.md
+```
+
+`both modified`らしい
+
+言われた通り`git add `する
+
+ファイルを確認すると以下のように変更されてる
+
+```bash
+<<<<<<< HEAD
+# 作業ブランチでの変更内容
+・・・
+=======
+# develop(マージしたブランチ)での変更内容
+・・・
+>>>>>>> develop
+```
+
+先にコンフリクトを自分で解消しておいてから、`add　→　commit`してもいいけど、CONFLICTの差分を残すためにも先にコミットしておいて、あとで修正コミットするのがいいのかな。
 
 # Git の中身
 
@@ -260,6 +300,7 @@ hash = sha1("commit<半角スペース><コミットオブジェクトのバイ�
 
 [hashを意図的に衝突させる攻撃に対するgoogle の生命](https://security.googleblog.com/2017/02/announcing-first-sha1-collision.html)
 
-=======
->>>>>>> 20a09efe1987970b472b45d5d004b365fcc8138a
->>>>>>> db26bfb54e4ee4542a8c8812d4486eb90f066196
+
+
+
+
